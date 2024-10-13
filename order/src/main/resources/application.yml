@@ -1,0 +1,23 @@
+server:
+  port: 8006
+dubbo:
+  application:
+    name: OrderApplication
+    qos-port: 33333
+    serialize-check-status: DISABLE
+  registry:
+    address: nacos://127.0.0.1:8848?register-consumer-url=true
+    register-mode: instance
+    file: ./registrycache
+    file-cache: false
+  consumer:
+    check: false
+    loadbalance: roundrobin #全局配置
+    parameters:
+      retries: 3
+      accesslog: true
+    filter: authFilter, logFilter
+
+spring:
+  application:
+    name: order
