@@ -17,6 +17,7 @@ dubbo:
       retries: 3
       accesslog: true
     filter: authFilter, logFilter
+    generic: true
 
 spring:
   application:
